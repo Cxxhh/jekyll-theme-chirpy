@@ -1,137 +1,138 @@
 @mixin styles {
-  /* Framework color */
-  --main-bg: white;
-  --mask-bg: #c1c3c5;
-  --main-border-color: #f3f3f3;
+  /* ========== 框架色 ========== */
+  --main-bg: #fff5e6; /* 浅杏色背景，比原奶油色稍暖 */
+  --mask-bg: linear-gradient(to bottom, #e0e0e0, #d1d1d1); /* 灰调渐变遮罩，增加层次感 */
+  --main-border-color: linear-gradient(to bottom, #f0f0f0, #e5e5e5); /* 极浅灰渐变边框 */
 
-  /* Common color */
-  --text-color: #34343c;
-  --text-muted-color: #757575;
-  --text-muted-highlight-color: inherit;
-  --heading-color: #2a2a2a;
-  --label-color: #585858;
-  --blockquote-border-color: #eeeeee;
-  --blockquote-text-color: #757575;
-  --link-color: #0056b2;
-  --link-underline-color: #dee2e6;
-  --button-bg: #ffffff;
-  --btn-border-color: #e9ecef;
-  --btn-backtotop-color: #686868;
-  --btn-backtotop-border-color: #f1f1f1;
-  --checkbox-color: #c5c5c5;
-  --checkbox-checked-color: #07a8f7;
-  --img-bg: radial-gradient(
-    circle,
-    rgb(255, 255, 255) 0%,
-    rgb(239, 239, 239) 100%
-  );
+  /* ========== 通用色 ========== */
+  --text-color: #404040; /* 深灰文本，比原色稍浅 */
+  --text-muted-color: #7d7d7d; /* 雾灰色次要文本 */
+  --text-muted-highlight-color: inherit; /* 继承父元素的颜色 */
+  --heading-color: #363636; /* 标题深灰，保持对比 */
+  --label-color: #5c5c5c; /* 标签颜色，略深于次要文本 */
+  --blockquote-border-color: #dddddd; /* 浅灰色引用边框 */
+  --blockquote-text-color: #707070; /* 中灰色引用文本 */
+  --link-color: #4a86c2; /* 浅靛蓝链接，降低饱和度 */
+  --link-underline-color: #c0d4ed; /* 链接下划线的淡蓝色 */
+  --button-bg: linear-gradient(to bottom, rgba(251, 218, 203, 0.9), rgba(249, 203, 183, 0.9)); /* 蜜桃色按钮渐变 */
+  --btn-border-color: #e1e1e1; /* 浅灰色按钮边框 */
+  --btn-backtotop-color: #5a5a5a; /* 返回顶部按钮颜色 */
+  --btn-backtotop-border-color: #dddddd; /* 返回顶部按钮边框颜色 */
+  --checkbox-color: #c7c7c7; /* 复选框颜色 */
+  --checkbox-checked-color: #7fbee5; /* 选中复选框的颜色 */
+  --img-bg: radial-gradient(circle, #ffffff 0%, #f1f1f1 100%); /* 图像背景的径向渐变 */
   --shimmer-bg: linear-gradient(
     90deg,
     rgba(250, 250, 250, 0) 0%,
     rgba(232, 230, 230, 1) 50%,
     rgba(250, 250, 250, 0) 100%
-  );
+  ); /* 闪烁效果的线性渐变 */
 
-  /* Sidebar */
-  --site-title-color: rgb(113, 113, 113);
-  --site-subtitle-color: #717171;
-  --sidebar-bg: #f6f8fa;
-  --sidebar-border-color: #efefef;
-  --sidebar-muted-color: #545454;
-  --sidebar-active-color: #1d1d1d;
-  --sidebar-hover-bg: rgb(223, 233, 241, 0.64);
-  --sidebar-btn-bg: white;
-  --sidebar-btn-color: #8e8e8e;
-  --avatar-border-color: white;
+  /* ========== 侧边栏 ========== */
+  --site-title-color: #6d6d6d; /* 侧边栏标题颜色 */
+  --site-subtitle-color: #4f4f4f; /* 侧边栏副标题颜色 */
+  --sidebar-bg: linear-gradient(to right, #e3f2fd, #fff5e6); /* 浅蓝到杏色渐变背景 */
+  --sidebar-border-color: #ffd1dc; /* 侧边栏边框渐变 */
+  --sidebar-muted-color: #545454; /* 侧边栏次要文本颜色 */
+  --sidebar-active-color: #1d1d1d; /* 侧边栏活动项颜色 */
+  --sidebar-hover-bg: linear-gradient(
+    to right,
+    rgba(214, 228, 240, 0.7),
+    rgba(200, 220, 230, 0.7)
+  ); /* 悬停的雾蓝色渐变 */
 
-  /* Topbar */
-  --topbar-bg: rgb(255, 255, 255, 0.7);
-  --topbar-text-color: rgb(78, 78, 78);
-  --search-border-color: rgb(240, 240, 240);
-  --search-icon-color: #c2c6cc;
-  --input-focus-border-color: #b8b8b8;
+  --sidebar-btn-bg: linear-gradient(to bottom, #ffffff, #f0f0f0); /* 侧边栏按钮背景渐变 */
+  --sidebar-btn-color: #8e8e8e; /* 侧边栏按钮颜色 */
+  --avatar-border-color: #f0f0f0; /* 头像边框颜色 */
 
-  /* Home page */
-  --post-list-text-color: dimgray;
-  --btn-patinator-text-color: #555555;
-  --btn-paginator-hover-color: var(--sidebar-bg);
+  /* ========== 顶部导航栏 ========== */
+  --topbar-bg: linear-gradient(to bottom, #ffffff, #f0f0f0); /* 顶部栏背景颜色的渐变 */
+  --topbar-text-color: #4e4e4e; /* 顶部栏文本颜色 */
+  --search-border-color: linear-gradient(to right, #f0f0f0, #e0e0e0); /* 搜索框边框渐变 */
+  --search-icon-color: #c2c6cc; /* 搜索图标颜色 */
+  --input-focus-border-color: #b8b8b8; /* 输入框聚焦边框颜色 */
 
-  /* Posts */
-  --toc-highlight: #0550ae;
-  --toc-popup-border-color: lightgray;
-  --btn-share-color: gray;
-  --btn-share-hover-color: #0d6efd;
-  --card-bg: white;
-  --card-hovor-bg: #e2e2e2;
-  --card-shadow: rgb(104, 104, 104, 0.05) 0 2px 6px 0,
-    rgba(211, 209, 209, 0.15) 0 0 0 1px;
-  --footnote-target-bg: lightcyan;
-  --tb-odd-bg: #fbfcfd;
-  --tb-border-color: #eaeaea;
-  --dash-color: silver;
-  --kbd-wrap-color: #bdbdbd;
-  --kbd-text-color: var(--text-color);
-  --kbd-bg-color: white;
-  --prompt-text-color: rgb(46, 46, 46, 0.77);
-  --prompt-tip-bg: rgb(123, 247, 144, 0.2);
-  --prompt-tip-icon-color: #03b303;
-  --prompt-info-bg: #e1f5fe;
-  --prompt-info-icon-color: #0070cb;
-  --prompt-warning-bg: rgb(255, 243, 205);
-  --prompt-warning-icon-color: #ef9c03;
-  --prompt-danger-bg: rgb(248, 215, 218, 0.56);
-  --prompt-danger-icon-color: #df3c30;
+  /* ========== 首页 ========== */
+  --post-list-text-color: dimgray; /* 文章列表文本颜色 */
+  --btn-patinator-text-color: #555555; /* 分页按钮文本颜色 */
+  --btn-paginator-hover-color: var(--sidebar-bg); /* 分页按钮悬停背景颜色 */
 
-  /* Tags */
-  --tag-border: #dee2e6;
-  --tag-shadow: var(--btn-border-color);
-  --tag-hover: rgb(222, 226, 230);
-  --search-tag-bg: #f8f9fa;
+  /* ========== 文章页 ========== */
+  --toc-highlight: #0550ae; /* 目录高亮颜色 */
+  --toc-popup-border-color: lightgray; /* 目录弹出边框颜色 */
+  --btn-share-color: gray; /* 分享按钮颜色 */
+  --btn-share-hover-color: #6c9dce; /* 分享按钮悬停颜色 */
+  --card-bg: linear-gradient(to bottom, #ffffff, #fafafa); /* 卡片背景渐变 */
+  --card-hovor-bg: #f0f0f0; /* 悬停时的浅灰背景 */
+  --card-shadow: rgba(0, 0, 0, 0.08) 0 2px 4px, rgba(0, 0, 0, 0.08) 0 0 0 1px; /* 柔和的卡片阴影 */
+  --footnote-target-bg: lightcyan; /* 脚注目标背景颜色 */
+  --tb-odd-bg: #f0f0f0; /* 表格奇数行背景颜色，柔和的浅灰色 */
+  --tb-border-color: #dcdcdc; /* 表格边框颜色，浅灰色 */
+  --dash-color: silver; /* 虚线颜色 */
+  --kbd-wrap-color: #bdbdbd; /* 键盘包裹颜色 */
+  --kbd-text-color: var(--text-color); /* 键盘文本颜色 */
+  --kbd-bg-color: white; /* 键盘背景颜色 */
+  --prompt-text-color: rgba(46, 46, 46, 0.77); /* 提示文本颜色 */
+  --prompt-tip-bg: rgba(123, 247, 144, 0.2); /* 提示背景颜色 */
+  --prompt-tip-icon-color: #03b303; /* 提示图标颜色 */
+  --prompt-info-bg: #e1f5fe; /* 信息提示背景颜色 */
+  --prompt-info-icon-color: #0070cb; /* 信息提示图标颜色 */
+  --prompt-warning-bg: rgb(255, 243, 205); /* 警告提示背景颜色 */
+  --prompt-warning-icon-color: #ef9c03; /* 警告提示图标颜色 */
+  --prompt-danger-bg: rgba(248, 215, 218, 0.56); /* 危险提示背景颜色 */
+  --prompt-danger-icon-color: #df3c30; /* 危险提示图标颜色 */
 
-  /* Categories */
-  --categories-border: rgba(0, 0, 0, 0.125);
-  --categories-hover-bg: var(--btn-border-color);
-  --categories-icon-hover-color: darkslategray;
+  /* ========== 标签 ========== */
+  --tag-border: linear-gradient(to right, #e0e0e0, #d5d5d5); /* 标签边框的灰调渐变 */
+  --tag-shadow: var(--btn-border-color); /* 标签阴影 */
+  --tag-hover: linear-gradient(to bottom, #f0f4f8, #e0e4e8); /* 标签悬停渐变 */
+  --search-tag-bg: #f8f9fa; /* 搜索标签背景颜色 */
 
-  /* Archive */
-  --timeline-color: rgba(0, 0, 0, 0.075);
-  --timeline-node-bg: #c2c6cc;
-  --timeline-year-dot-color: #ffffff;
+  /* ========== 分类 ========== */
+  --categories-border: rgba(0, 0, 0, 0.125); /* 分类边框颜色 */
+  --categories-hover-bg: linear-gradient(to bottom, #f0f0f0, #e0e0e0); /* 分类悬停背景渐变 */
+  --categories-icon-hover-color: darkslategray; /* 分类图标悬停颜色 */
 
-  /* --- Custom code light mode colors --- */
-  --language-border-color: #ececec;
-  --highlight-bg-color: #f6f8fa;
+  /* ========== 归档页及时间轴 ========== */
+  --timeline-color: rgba(0, 0, 0, 0.075); /* 时间线颜色 */
+  --timeline-node-bg: #c2c6cc; /* 时间线节点背景颜色 */
+  --timeline-year-dot-color: #ffffff; /* 时间线年份点颜色 */
+
+  /* ========== 代码相关颜色 ========== */
+  --language-border-color: #e8e8e8; /* 比原色更柔和的边框 */
+  --highlight-bg-color: #f8f9fb; /* 代码块浅蓝灰背景 */
   --highlighter-rouge-color: #3f596f;
   --highlight-lineno-color: #9e9e9e;
-  --inline-code-bg: rgba(25, 25, 28, 0.05);
+  --inline-code-bg: rgba(240, 240, 240, 0.6); /* 行内代码半透明白雾色 */
   --code-color: #3a3a3a;
   --code-header-text-color: #a3a3a3;
   --code-header-muted-color: #e5e5e5;
   --code-header-icon-color: #c9c8c8;
-  --clipboard-checked-color: #43c743;
+  --clipboard-checked-color: #8dcc8d; /* 复制成功的嫩绿色 */
 
-  [class^='prompt-'] {
+  /* 针对以 "prompt-" 开头的类，单独设置链接下划线颜色 */
+  [class^="prompt-"] {
     --link-underline-color: rgb(219, 216, 216);
   }
 
+  /* 隐藏暗色模式相关样式 */
   .dark {
     display: none;
   }
 
-  /* --- Syntax highlight theme from `rougify style github` --- */
-
+  /* ========== 语法高亮主题 ========== */
   .highlight table td {
-    padding: 5px;
+    padding: 5px; /* 设置表格单元格内边距 */
   }
 
   .highlight table pre {
-    margin: 0;
+    margin: 0; /* 移除预格式化文本的外边距 */
   }
 
   .highlight,
   .highlight .w {
-    color: #24292f;
-    background-color: #f6f8fa;
+    color: #24292f; /* 设置整体语法高亮文本颜色 */
+    background-color: #f6f8fa; /* 设置代码块背景色 */
   }
 
   .highlight .k,
@@ -141,53 +142,53 @@
   .highlight .kr,
   .highlight .kt,
   .highlight .kv {
-    color: #cf222e;
+    color: #cf222e; /* 关键字及相关标识符的颜色 */
   }
 
   .highlight .gr {
-    color: #f6f8fa;
+    color: #f6f8fa; /* 设定辅助或灰色文本 */
   }
 
   .highlight .gd {
-    color: #82071e;
-    background-color: #ffebe9;
+    color: #82071e; /* 删除或错误代码颜色 */
+    background-color: #ffebe9; /* 错误背景色 */
   }
 
   .highlight .nb {
-    color: #953800;
+    color: #953800; /* 数字或常量颜色 */
   }
 
   .highlight .nc {
-    color: #953800;
+    color: #953800; /* 类名颜色 */
   }
 
   .highlight .no {
-    color: #953800;
+    color: #953800; /* 其他名称颜色 */
   }
 
   .highlight .nn {
-    color: #953800;
+    color: #953800; /* 变量或函数名称颜色 */
   }
 
   .highlight .sr {
-    color: #116329;
+    color: #116329; /* 字符串相关颜色 */
   }
 
   .highlight .na {
-    color: #116329;
+    color: #116329; /* 属性名称颜色 */
   }
 
   .highlight .nt {
-    color: #116329;
+    color: #116329; /* 标签名称颜色 */
   }
 
   .highlight .gi {
-    color: #116329;
-    background-color: #dafbe1;
+    color: #116329; /* 插入代码块的文字颜色 */
+    background-color: #dafbe1; /* 插入代码块的背景色 */
   }
 
   .highlight .kc {
-    color: #0550ae;
+    color: #0550ae; /* 控制结构关键字颜色 */
   }
 
   .highlight .l,
@@ -200,27 +201,27 @@
   .highlight .il,
   .highlight .mo,
   .highlight .mx {
-    color: #0550ae;
+    color: #0550ae; /* 数字、常量和字面量的颜色 */
   }
 
   .highlight .sb {
-    color: #0550ae;
+    color: #0550ae; /* 字符串字面量的颜色 */
   }
 
   .highlight .bp {
-    color: #0550ae;
+    color: #0550ae; /* 属性值的颜色 */
   }
 
   .highlight .ne {
-    color: #0550ae;
+    color: #0550ae; /* 命名实体的颜色 */
   }
 
   .highlight .nl {
-    color: #0550ae;
+    color: #0550ae; /* 标识符的颜色 */
   }
 
   .highlight .py {
-    color: #0550ae;
+    color: #0550ae; /* Python 相关标识的颜色 */
   }
 
   .highlight .nv,
@@ -228,22 +229,22 @@
   .highlight .vg,
   .highlight .vi,
   .highlight .vm {
-    color: #0550ae;
+    color: #0550ae; /* 变量及其它标识符的颜色 */
   }
 
   .highlight .o,
   .highlight .ow {
-    color: #0550ae;
+    color: #0550ae; /* 运算符的颜色 */
   }
 
   .highlight .gh {
-    color: #0550ae;
-    font-weight: bold;
+    color: #0550ae; /* 内联代码中标签的颜色 */
+    font-weight: bold; /* 加粗效果 */
   }
 
   .highlight .gu {
-    color: #0550ae;
-    font-weight: bold;
+    color: #0550ae; /* 用户自定义标识的颜色 */
+    font-weight: bold; /* 加粗效果 */
   }
 
   .highlight .s,
@@ -257,21 +258,21 @@
   .highlight .sx,
   .highlight .s1,
   .highlight .ss {
-    color: #0a3069;
+    color: #0a3069; /* 字符串及文字符号的颜色 */
   }
 
   .highlight .nd {
-    color: #8250df;
+    color: #8250df; /* 函数或属性名称的颜色 */
   }
 
   .highlight .nf,
   .highlight .fm {
-    color: #8250df;
+    color: #8250df; /* 方法名和函数的颜色 */
   }
 
   .highlight .err {
-    color: #f6f8fa;
-    background-color: #82071e;
+    color: #f6f8fa; /* 错误代码文字颜色 */
+    background-color: #82071e; /* 错误代码背景色 */
   }
 
   .highlight .c,
@@ -282,32 +283,32 @@
   .highlight .cpf,
   .highlight .c1,
   .highlight .cs {
-    color: #68717a;
+    color: #68717a; /* 注释及相关内容的颜色 */
   }
 
   .highlight .gl {
-    color: #68717a;
+    color: #68717a; /* 全局变量或特殊字符的颜色 */
   }
 
   .highlight .gt {
-    color: #68717a;
+    color: #68717a; /* HTML 标签中大于符号的颜色 */
   }
 
   .highlight .ni {
-    color: #24292f;
+    color: #24292f; /* 命名空间标识符的颜色 */
   }
 
   .highlight .si {
-    color: #24292f;
+    color: #24292f; /* 选择器或其它标识符的颜色 */
   }
 
   .highlight .ge {
-    color: #24292f;
-    font-style: italic;
+    color: #24292f; /* 强调文本的颜色 */
+    font-style: italic; /* 斜体效果 */
   }
 
   .highlight .gs {
-    color: #24292f;
-    font-weight: bold;
+    color: #24292f; /* 加粗显示的文本颜色 */
+    font-weight: bold; /* 加粗效果 */
   }
 }
