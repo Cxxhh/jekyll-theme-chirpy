@@ -23,7 +23,7 @@ description: >- # 用于SEO元数据和Atom订阅源
 
 # 填写您站点的协议和主机名
 # 例如'https://username.github.io'，注意结尾不要带'/'
-url: ""
+url: "https://blog.cxxhh.us.kg"
 
 github:
   username: Cxxhh # 更改为您的GitHub用户名
@@ -94,7 +94,7 @@ theme_mode: # [light | dark]
 # 都会被添加该CDN地址
 #
 # 例如'https://cdn.com'
-cdn: "https://chirpy-img.netlify.app"
+cdn: "https://cdn.jsdelivr.net/gh/Cxxhh/blog-img/"
 
 # 侧边栏头像，支持本地或跨域资源
 avatar: "https://s21.ax1x.com/2025/02/10/pEnZlE8.jpg"

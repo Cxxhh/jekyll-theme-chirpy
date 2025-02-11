@@ -7,13 +7,13 @@ categories: [Minecraft, 自动采矿]
 tags: [Baritone, JsMacros, 自动采矿脚本]
 description: "该脚本是为 Minecraft 设计的自动采矿辅助工具，利用 Baritone 自动化挖矿，并配合 JsMacros 实现自动化操作。"
 image:
-  path: https://cdn.jsdelivr.net/gh/Cxxhh/blog-img/img/mine.jpg
+  path: https://testingcf.jsdelivr.net/gh/Cxxhh/blog-img/img/mine.jpg
 pin: false
 toc: true
 comments: true
 math: false
 mermaid: false
-media_subpath: "/assets/myimg/"
+media_subpath: ""
 ---
 
 # 自动采矿脚本介绍
@@ -109,13 +109,11 @@ media_subpath: "/assets/myimg/"
 
 - **作者**：Pech  
 - **QQ**：3054736043  
-- **版本**：1.0.2  
-
 ---
 
 ## 更新日志
 
-### 2024-02-09 更新
+### 2024-02-09 更新 V1.0.2  
 - 修复卡顿问题  
 - 去除 debug 的错误日志输出  
 
