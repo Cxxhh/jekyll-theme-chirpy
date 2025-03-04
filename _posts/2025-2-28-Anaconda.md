@@ -1,7 +1,7 @@
 ---
 title: "Anaconda 常用命令列表"
-date: 2024-02-09 12:00:00 +0800
-updated: 2024-02-09 12:00:00 +0800
+date: 2025-02-09 12:00:00 +0800
+updated: 2025-02-09 12:00:00 +0800
 author: Cxxhh
 categories: [Python, 工具]
 tags: [Anaconda, Conda, 包管理]
