@@ -1,9 +1,9 @@
 ---
 title: "自动采矿脚本"
-date: 2024-02-09 12:00:00 +0800
-updated: 2024-02-09 12:00:00 +0800
+date: 2025-02-09 12:00:00 +0800
+updated: 2025-02-09 12:00:00 +0800
 author: Cxxhh
-categories: [Minecraft, 自动采矿]
+categories: [Minecraft, 自动化]
 tags: [Baritone, JsMacros, 自动采矿脚本]
 description: "该脚本是为 Minecraft 设计的自动采矿辅助工具，利用 Baritone 自动化挖矿，并配合 JsMacros 实现自动化操作。"
 image:
