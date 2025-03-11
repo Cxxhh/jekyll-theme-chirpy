@@ -4,7 +4,7 @@ date: 2025-03-04 22:43:29 +0800
 updated: 2025-03-07 11:43:05 +0800
 author: Cxxhh
 categories: [蓝桥杯, 嵌入式,学习记录]
-tags: [STM32, Keil, CubeMX, 按键]
+tags: [STM32, Keil, CubeMX]
 description: "本文记录了学习蓝桥杯嵌入式开发过程中的按键模块的记录"
 pin: false
 toc: true
