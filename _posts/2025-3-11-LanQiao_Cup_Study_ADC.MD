@@ -9,7 +9,7 @@ description: "本文记录了学习蓝桥杯嵌入式开发过程中的ADC电压
 pin: false
 toc: true
 comments: true
-math: false
+math: true
 mermaid: false
 media_subpath: ""
 ---
@@ -38,4 +38,33 @@ double Get_ADC(ADC_HandleTypeDef *hadc)
     return HAL_ADC_GetValue(hadc)*3.3/4096; //参考电压为3V3，12bit的分辨率
 }
 ```
+### 3.DMA连续采样（非阻塞获取）
+
+需要添加一个DMA请求：
+
+
+![](https://testingcf.jsdelivr.net/gh/Cxxhh/blog-img/img/68747470733a2f2f73686565702d70686f746f2e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d672f3230323330313137313530333032372e706e67)
+
+增加以下配置：
+
+![](https://testingcf.jsdelivr.net/gh/Cxxhh/blog-img/img/68747470733a2f2f73686565702d70686f746f2e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d672f3230323330313137313530303936312e706e67)
+
+![](https://testingcf.jsdelivr.net/gh/Cxxhh/blog-img/img/68747470733a2f2f73686565702d70686f746f2e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d672f3230323330313137313434303638372e706e67)
+
+![](https://testingcf.jsdelivr.net/gh/Cxxhh/blog-img/img/68747470733a2f2f73686565702d70686f746f2e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d672f3230323330313235313230393332302e706e67)
+
+完成上面的设置后即可开始编写代码：
+
+`16 adc1_buff[1] = {0}; // 接收数组`
+
+`HAL_ADC_Start_DMA(&hadc1,(u32 *)adc1_buff,1); //打开dma的adc采样`
+
+```c
+while (1)
+  {
+    /* USER CODE END WHILE */
+    uint16_t channel1_value = adc1_buff[0]; //获取数值
+  }
+```
+
 

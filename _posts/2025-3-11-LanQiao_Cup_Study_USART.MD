@@ -9,7 +9,7 @@ description: "本文记录了学习蓝桥杯嵌入式开发过程中的串口通
 pin: false
 toc: true
 comments: true
-math: false
+math: true
 mermaid: false
 media_subpath: ""
 ---
@@ -101,4 +101,62 @@ void uart_data_rx()
 $$
 CNT一个计数：CNT_{1} = \frac{1}{\frac{Freq}{PSC+1}} = \frac{1}{\frac{80\text{MHz}}{8000}} = \frac{1}{10\text{kHz}} = 0.1\text{ms}
 $$
+#### 2>使用串口中断+DMA+空闲中断来实现
 
+
+
+![](https://testingcf.jsdelivr.net/gh/Cxxhh/blog-img/img/%E4%B8%B2%E5%8F%A3-dma.png)
+
+在`stm32g4xx_it.c`中加入以下代码 ：
+
+```c
+//用户自定义中断
+void USER_UART_IRQHandler(UART_HandleTypeDef *huart)
+{
+    if(__HAL_UART_GET_FLAG(huart,UART_FLAG_IDLE))
+    {
+        __HAL_UART_CLEAR_IDLEFLAG(huart);//清除空闲中断
+        USER_UART_IDLE_CallBack(huart); //用户回调，在需要的地方定义并编写
+
+    }
+}
+//找到以下函数 并加入
+void USART1_IRQHandler(void)
+{
+  /* USER CODE BEGIN USART1_IRQn 0 */
+
+  /* USER CODE END USART1_IRQn 0 */
+  HAL_UART_IRQHandler(&huart1);
+  /* USER CODE BEGIN USART1_IRQn 1 */
+    USER_UART_IRQHandler(&huart1); /////用户自定义中断
+  /* USER CODE END USART1_IRQn 1 */
+}
+```
+
+> 定义并编写`void USER_UART_IDLE_CallBack(UART_HandleTypeDef *huart);`***PS:必须要和用户中断内的回调名一样***
+
+```c
+char rx_buff[128];
+void USER_UART_IDLE_CallBack(UART_HandleTypeDef *huart)
+{
+    if(huart->Instance == USART1)
+    {
+        HAL_UART_DMAStop(huart);
+       // rx_buff[strlen(rx_buff)] = '\0';
+       HAL_UART_Transmit(huart,(uint8_t *)rx_buff,strlen(rx_buff),50);
+       memset(rx_buff,0,128);
+        HAL_UART_Receive_DMA(huart,(uint8_t *)rx_buff,128);
+    }
+
+
+
+}
+```
+
+> 最后在主函数内初始化
+
+`__HAL_UART_ENABLE_IT(&huart1,UART_IT_IDLE);`
+
+`HAL_UART_Receive_DMA(&huart1,(uint8_t *)rx_buff,128);`
+
+**注意：上面两个函数下不应该有HAL库的函数 否则会出现初始化后进入一次串口中断**

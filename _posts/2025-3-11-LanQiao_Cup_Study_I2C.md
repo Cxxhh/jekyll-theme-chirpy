@@ -9,7 +9,7 @@ description: "本文记录了学习蓝桥杯嵌入式开发过程中的I2C通信
 pin: false
 toc: true
 comments: true
-math: false
+math: true
 mermaid: false
 media_subpath: ""
 ---

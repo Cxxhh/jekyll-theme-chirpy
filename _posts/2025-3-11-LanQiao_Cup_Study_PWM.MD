@@ -9,7 +9,7 @@ description: "本文记录了学习蓝桥杯嵌入式开发过程中的PWM输出
 pin: false
 toc: true
 comments: true
-math: false
+math: true
 mermaid: false
 media_subpath: ""
 ---
@@ -127,5 +127,39 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
 ### 2.4 测量占空比
 
 ```c
-// 待实现（当前存在未知问题导致功能异常）
+// 输入捕获中断回调函数，当TIM的输入捕获事件触发时由HAL库调用
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
+{
+    // 判断触发中断的定时器是否为TIM2
+    if(htim->Instance == TIM2)
+    {
+        // 判断触发中断的通道是否为通道1
+        if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
+        {
+            // 获取通道1的捕获值（通常对应上升沿捕获）
+            TIM2_capture_value = TIM2->CCR1;
+
+            // 重置TIM2计数器，为下次测量做准备
+            TIM2->CNT = 0 ;
+
+            // 计算信号频率
+            TIM2_Fre = 1000000/TIM2_capture_value;
+
+            // 计算占空比：用下降沿值除以上升沿周期值，转换为百分比
+            duty = ((float)TIM2_capture_value_fall/(float)TIM2_capture_value)*100;
+        }
+        // 判断触发中断的通道是否为通道2
+        else if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_2)
+        {
+            // 获取通道2的捕获值（通常对应下降沿捕获）
+            TIM2_capture_value_fall = TIM2->CCR2;
+        }
+
+        // 重新启动通道1和通道2的输入捕获（HAL库捕获后会自动停止通道）
+        HAL_TIM_IC_Start(&htim2,TIM_CHANNEL_1);
+        HAL_TIM_IC_Start(&htim2,TIM_CHANNEL_2);
+
+    }
+}
+
 ```
