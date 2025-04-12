@@ -106,6 +106,23 @@ $$
 
 
 ![](https://testingcf.jsdelivr.net/gh/Cxxhh/blog-img/img/%E4%B8%B2%E5%8F%A3-dma.png)
+### 加入新方法
+
+```c
+void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
+{
+    if(huart->Instance == USART1)
+    {
+        HAL_UART_DMAStop(huart);
+        rx_flag =1;
+        rx_Size = Size;
+        HAL_UARTEx_ReceiveToIdle_DMA(&huart1,(u8 *)rxbuff,128);
+    }
+}
+```
+在初始化时使用 `HAL_UARTEx_ReceiveToIdle_DMA(&huart1,(u8 *)rxbuff,128)`;打开接收
+
+### 以下方法为旧方法，不推荐使用》》》》
 
 在`stm32g4xx_it.c`中加入以下代码 ：
 
